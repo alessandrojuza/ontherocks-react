@@ -1,4 +1,5 @@
 import "./App.scss";
+import SearchIcon from "@mui/icons-material/Search";
 
 function App() {
   return (
@@ -8,7 +9,7 @@ function App() {
           <div className="logo-container"></div>
           <div className="search-bar">
             <input type="text" className="search-bar-input" />
-            <p>Q</p>
+            <SearchIcon className="search-icon" />
           </div>
         </div>
         <div className="result-container"></div>
