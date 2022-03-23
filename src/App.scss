@@ -78,6 +78,7 @@ $transparent-white: rgba(255, 255, 255, 0.514);
 
           &:focus::placeholder {
             color: transparent;
+            font-size: 10pt;
           }
         }
 
@@ -92,9 +93,13 @@ $transparent-white: rgba(255, 255, 255, 0.514);
       }
     }
 
+    .number-of-results {
+      margin: 10px;
+    }
+
     .result-container {
       overflow-y: scroll;
-      padding-top: 40px;
+      padding-top: 0px;
     }
   }
 }
