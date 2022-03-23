@@ -8,22 +8,34 @@ import CloseIcon from "@mui/icons-material/Close";
 import Logo from "./img/logo.png";
 
 function App() {
-  // const [inputValue, setInputValue] = useState(searchQuery);
   const [searchQuery, setSearchQuery] = useState(""); // User query is stored here and updated on every input change
   const [cocktailArray, setCocktailArray] = useState([]);
   const [numberOfResults, setNumberOfResults] = useState("");
 
+  const [modalCocktailName, setModalCocktailName] = useState("");
+  const [modalCocktailImg, setModalCocktailImg] = useState("");
+  const [modalCocktailDescription, setModalCocktailDescription] = useState("");
+  const [modalClass, setModalClass] = useState(""); // this variable sets the visibility of the modal
+
   const clearInput = () => {
+    // This function clears the user input when X button is pressed
     setSearchQuery("");
   };
 
-  const renderCocktail = () => {
-    if (cocktailArray.isArray) {
-      setNumberOfResults(cocktailArray.length);
-      cocktailArray.map((e) => {
-        return <CocktailResult name={e.strDrink} img={e.strDrinkThumb} />;
-      });
-    }
+  const renderModal = () => {
+    // This function sets name, img and description of the clicked result and renders the cocktail modal
+    cocktailArray.map((e) => {
+      return (
+        <CocktailResult
+          name={e.strDrink}
+          img={e.strDrinkThumb}
+          key={e.idDrink}
+          setModalCocktailImg={modalCocktailImg}
+          setModalCocktailName={modalCocktailName}
+          setModalCocktailDescription={modalCocktailDescription}
+        />
+      );
+    });
   };
 
   const callCocktailApi = () => {
@@ -34,7 +46,7 @@ function App() {
     `
       )
       .then((res) => {
-        setCocktailArray(res.data.drinks);
+        setCocktailArray(res.data.drinks || []);
         console.log(res.data.drinks);
       })
       .catch((error) => {
@@ -73,11 +85,30 @@ function App() {
         </FadeIn>
         <div className="result-container">
           {cocktailArray.map((e) => {
-            return <CocktailResult name={e.strDrink} img={e.strDrinkThumb} />;
+            return (
+              <FadeIn transitionDuration="200">
+                <CocktailResult
+                  name={e.strDrink}
+                  img={e.strDrinkThumb}
+                  description={e.strInstructions}
+                  key={e.idDrink}
+                  setModalClass={setModalClass}
+                  setModalCocktailImg={setModalCocktailImg}
+                  setModalCocktailName={setModalCocktailName}
+                  setModalCocktailDescription={setModalCocktailDescription}
+                />
+              </FadeIn>
+            );
           })}
         </div>
       </div>
-      <CocktailModal />
+      <CocktailModal
+        modalCocktailImg={modalCocktailImg}
+        modalCocktailName={modalCocktailName}
+        modalCocktailDescription={modalCocktailDescription}
+        modalClass={modalClass}
+        setModalClass={setModalClass}
+      />
     </div>
   );
 }

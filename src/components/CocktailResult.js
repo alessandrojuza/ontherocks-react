@@ -1,12 +1,27 @@
 import React from "react";
 import "../styles/CocktailResult.scss";
 
-const CocktailResult = ({ img, name }) => {
+const CocktailResult = ({
+  img,
+  name,
+  description,
+  setModalCocktailName,
+  setModalCocktailImg,
+  setModalCocktailDescription,
+  setModalClass,
+}) => {
+  const setModalData = () => {
+    // This function updates the modal data with the clicked cocktail result and make it visible
+    setModalCocktailName(name);
+    setModalCocktailImg(img);
+    setModalCocktailDescription(description);
+    setModalClass("");
+  };
   return (
-    <div className="cocktail-result">
+    <div className="cocktail-result" onClick={setModalData}>
       <img src={img} alt="cocktail-image" />
       <p>{name}</p>
-      <div className="expolore-button">
+      <div className="explore-button">
         <h1>></h1>
       </div>
     </div>
