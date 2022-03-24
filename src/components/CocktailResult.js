@@ -5,9 +5,13 @@ const CocktailResult = ({
   img,
   name,
   description,
+  glass,
+  type,
   setModalCocktailName,
   setModalCocktailImg,
   setModalCocktailDescription,
+  setModalCocktailGlass,
+  setModalCocktailType,
   setModalClass,
 }) => {
   const setModalData = () => {
@@ -15,6 +19,9 @@ const CocktailResult = ({
     setModalCocktailName(name);
     setModalCocktailImg(img);
     setModalCocktailDescription(description);
+    setModalCocktailGlass(glass);
+    setModalCocktailType(type);
+
     setModalClass("");
   };
   return (

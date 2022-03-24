@@ -15,28 +15,31 @@ function App() {
   const [modalCocktailName, setModalCocktailName] = useState("");
   const [modalCocktailImg, setModalCocktailImg] = useState("");
   const [modalCocktailDescription, setModalCocktailDescription] = useState("");
-  const [modalClass, setModalClass] = useState(""); // this variable sets the visibility of the modal
+  const [modalCocktailGlass, setModalCocktailGlass] = useState("");
+  const [modalCocktailType, setModalCocktailType] = useState("");
+  const [modalClass, setModalClass] = useState("hidden"); // this variable sets the visibility of the modal
 
   const clearInput = () => {
     // This function clears the user input when X button is pressed
     setSearchQuery("");
   };
 
-  const renderModal = () => {
-    // This function sets name, img and description of the clicked result and renders the cocktail modal
-    cocktailArray.map((e) => {
-      return (
-        <CocktailResult
-          name={e.strDrink}
-          img={e.strDrinkThumb}
-          key={e.idDrink}
-          setModalCocktailImg={modalCocktailImg}
-          setModalCocktailName={modalCocktailName}
-          setModalCocktailDescription={modalCocktailDescription}
-        />
-      );
-    });
-  };
+  // const renderModal = () => {
+  //   // This function sets name, img and description of the clicked result and renders the cocktail modal
+  //   cocktailArray.map((e) => {
+  //     return (
+  //       <CocktailResult
+  //         name={e.strDrink}
+  //         img={e.strDrinkThumb}
+  //         key={e.idDrink}
+  //         setModalCocktailImg={modalCocktailImg}
+  //         setModalCocktailName={modalCocktailName}
+  //         setModalCocktailDescription={modalCocktailDescription}
+  //         setModalCocktailGlass={modalCocktailGlass}
+  //       />
+  //     );
+  //   });
+  // };
 
   const callCocktailApi = () => {
     // This function fetches an array of cocktails from the api and stores it in cocktailArray
@@ -80,9 +83,7 @@ function App() {
             </div>
           </FadeIn>
         </div>
-        <FadeIn transitionDuration="1000" delay="500">
-          <h4 className="number-of-results">{`${numberOfResults} COCKTAILS FOUND:`}</h4>
-        </FadeIn>
+
         <div className="result-container">
           {cocktailArray.map((e) => {
             return (
@@ -91,11 +92,15 @@ function App() {
                   name={e.strDrink}
                   img={e.strDrinkThumb}
                   description={e.strInstructions}
+                  glass={e.strGlass}
                   key={e.idDrink}
+                  type={e.strCategory}
                   setModalClass={setModalClass}
                   setModalCocktailImg={setModalCocktailImg}
                   setModalCocktailName={setModalCocktailName}
                   setModalCocktailDescription={setModalCocktailDescription}
+                  setModalCocktailGlass={setModalCocktailGlass}
+                  setModalCocktailType={setModalCocktailType}
                 />
               </FadeIn>
             );
@@ -106,6 +111,8 @@ function App() {
         modalCocktailImg={modalCocktailImg}
         modalCocktailName={modalCocktailName}
         modalCocktailDescription={modalCocktailDescription}
+        modalCocktailGlass={modalCocktailGlass}
+        modalCocktailType={modalCocktailType}
         modalClass={modalClass}
         setModalClass={setModalClass}
       />

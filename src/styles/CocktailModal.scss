@@ -10,15 +10,20 @@ $transparent-white: rgba(255, 255, 255, 0.514);
   justify-content: center;
   align-items: center;
 
-  background: rgba(0, 0, 0, 0.747);
+  //   background: rgba(0, 0, 0, 0.747);
+  background: rgba(255, 255, 255, 0.747);
 
   .cocktail-modal {
-    height: 700px;
+    height: 410px;
     width: 700px;
 
     display: grid;
-    grid-template-columns: 0.1fr 0.8fr 0.1fr;
-    grid-template-rows: 0.2fr 0.8fr;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 0.1fr 0.9fr;
+    gap: 0px 0px;
+    grid-template-areas:
+      "div1 div1"
+      "div2 div3";
 
     padding: 40px;
 
@@ -26,13 +31,19 @@ $transparent-white: rgba(255, 255, 255, 0.514);
     border-radius: 20px;
 
     .div1 {
-      grid-area: 1 / 1 / 2 / 2;
-    }
-    .div2 {
-      grid-area: 1 / 2 / 2 / 3;
-    }
-    .div3 {
-      grid-area: 1 / 3 / 2 / 4;
+      grid-area: div1;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      padding-bottom: 40px;
+
+      h3 {
+        font-size: 24pt;
+        margin: 0;
+      }
+
       .close-icon {
         transition: color 0.3s;
 
@@ -42,11 +53,29 @@ $transparent-white: rgba(255, 255, 255, 0.514);
         }
       }
     }
-    .div4 {
-      grid-area: 2 / 1 / 3 / 2;
+    .div2 {
+      grid-area: div2;
+
+      img {
+        height: 300px;
+        border-radius: 10px;
+      }
     }
-    .div5 {
-      grid-area: 2 / 2 / 3 / 4;
+    .div3 {
+      margin-left: 30px;
+      grid-area: div3;
+
+      overflow-y: scroll;
+
+      h4 {
+        text-align: left;
+        margin: 0 0 5px 0;
+      }
+
+      p {
+        text-align: left;
+        margin: 0 0 20px 0;
+      }
     }
   }
 }
