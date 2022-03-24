@@ -41,7 +41,6 @@ function App() {
 
   const searchCocktail = (e) => {
     setSearchQuery(e.target.value); // Updates searchQuery on every input change
-    console.log(searchQuery);
     callCocktailApi();
   };
 
@@ -69,13 +68,12 @@ function App() {
         <div className="result-container">
           {cocktailArray.map((e) => {
             return (
-              <FadeIn transitionDuration="200">
+              <FadeIn transitionDuration="200" key={e.idDrink}>
                 <CocktailResult
                   name={e.strDrink}
                   img={e.strDrinkThumb}
                   description={e.strInstructions}
                   glass={e.strGlass}
-                  key={e.idDrink}
                   type={e.strCategory}
                   setModalClass={setModalClass}
                   setModalCocktailImg={setModalCocktailImg}

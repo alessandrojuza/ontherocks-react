@@ -82,3 +82,11 @@ $transparent-white: rgba(255, 255, 255, 0.514);
 .hidden {
   display: none;
 }
+
+@media screen and (max-width: 991px) {
+  .cocktail-modal-container {
+    .cocktail-modal {
+      transform: scale(0.8);
+    }
+  }
+}

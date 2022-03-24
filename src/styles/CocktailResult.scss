@@ -30,3 +30,26 @@
     font-weight: 600;
   }
 }
+
+@media screen and (max-width: 991px) {
+  .cocktail-result {
+    width: 580px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .cocktail-result {
+    width: 460px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .cocktail-result {
+    width: 320px;
+
+    p {
+      font-size: 12pt;
+      padding: 0 5px 0 5px;
+    }
+  }
+}
