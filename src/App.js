@@ -10,36 +10,19 @@ import Logo from "./img/logo.png";
 function App() {
   const [searchQuery, setSearchQuery] = useState(""); // User query is stored here and updated on every input change
   const [cocktailArray, setCocktailArray] = useState([]);
-  const [numberOfResults, setNumberOfResults] = useState("");
 
   const [modalCocktailName, setModalCocktailName] = useState("");
   const [modalCocktailImg, setModalCocktailImg] = useState("");
   const [modalCocktailDescription, setModalCocktailDescription] = useState("");
   const [modalCocktailGlass, setModalCocktailGlass] = useState("");
   const [modalCocktailType, setModalCocktailType] = useState("");
-  const [modalClass, setModalClass] = useState("hidden"); // this variable sets the visibility of the modal
+  const [modalClass, setModalClass] = useState("hidden"); // this variable sets the visibility of the CocktailModal
 
   const clearInput = () => {
     // This function clears the user input when X button is pressed
     setSearchQuery("");
+    setCocktailArray([]);
   };
-
-  // const renderModal = () => {
-  //   // This function sets name, img and description of the clicked result and renders the cocktail modal
-  //   cocktailArray.map((e) => {
-  //     return (
-  //       <CocktailResult
-  //         name={e.strDrink}
-  //         img={e.strDrinkThumb}
-  //         key={e.idDrink}
-  //         setModalCocktailImg={modalCocktailImg}
-  //         setModalCocktailName={modalCocktailName}
-  //         setModalCocktailDescription={modalCocktailDescription}
-  //         setModalCocktailGlass={modalCocktailGlass}
-  //       />
-  //     );
-  //   });
-  // };
 
   const callCocktailApi = () => {
     // This function fetches an array of cocktails from the api and stores it in cocktailArray
@@ -50,7 +33,6 @@ function App() {
       )
       .then((res) => {
         setCocktailArray(res.data.drinks || []);
-        console.log(res.data.drinks);
       })
       .catch((error) => {
         console.log(error);
