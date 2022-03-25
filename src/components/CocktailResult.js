@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/CocktailResult.scss";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 const CocktailResult = ({
   img,
@@ -29,7 +30,7 @@ const CocktailResult = ({
       <img src={img} alt="cocktail-image" />
       <p>{name}</p>
       <div className="explore-button">
-        <h1>></h1>
+        <ArrowForwardIcon />
       </div>
     </div>
   );

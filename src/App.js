@@ -9,13 +9,14 @@ import Logo from "./img/logo.png";
 
 function App() {
   const [searchQuery, setSearchQuery] = useState(""); // User query is stored here and updated on every input change
-  const [cocktailArray, setCocktailArray] = useState([]);
+  const [cocktailArray, setCocktailArray] = useState([]); // Fetched from API, this array contains all the cocktail objects
 
   const [modalCocktailName, setModalCocktailName] = useState("");
   const [modalCocktailImg, setModalCocktailImg] = useState("");
   const [modalCocktailDescription, setModalCocktailDescription] = useState("");
   const [modalCocktailGlass, setModalCocktailGlass] = useState("");
   const [modalCocktailType, setModalCocktailType] = useState("");
+
   const [modalClass, setModalClass] = useState("hidden"); // this variable sets the visibility of the CocktailModal
 
   const clearInput = () => {
@@ -29,10 +30,10 @@ function App() {
     axios
       .get(
         `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchQuery}
-    `
+    ` // API Call
       )
       .then((res) => {
-        setCocktailArray(res.data.drinks || []);
+        setCocktailArray(res.data.drinks || []); // Only render results if an array is fetched
       })
       .catch((error) => {
         console.log(error);

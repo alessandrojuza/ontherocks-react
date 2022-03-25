@@ -31,6 +31,12 @@
     font-size: 14pt;
     font-weight: 600;
   }
+
+  .explore-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 }
 
 @media screen and (max-width: 991px) {
