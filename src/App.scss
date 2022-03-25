@@ -57,10 +57,11 @@ $transparent-white: rgba(255, 255, 255, 0.514);
         width: 600px;
 
         background: rgba(255, 255, 255, 0.082);
-        // border: 2px solid $transparent-white;
-        border-radius: 10px;
 
+        border-radius: 10px;
         margin-bottom: 40px;
+
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
         .search-bar-input {
           height: 50px;
@@ -101,9 +102,18 @@ $transparent-white: rgba(255, 255, 255, 0.514);
   }
 }
 
+@media screen and (max-height: 1024px) {
+  .App {
+    .main-container {
+      height: 90vh;
+    }
+  }
+}
+
 @media screen and (max-width: 991px) {
   .App {
     .main-container {
+      height: 90vh;
       width: 600px;
 
       .search-bar-container {
@@ -124,6 +134,7 @@ $transparent-white: rgba(255, 255, 255, 0.514);
 @media screen and (max-width: 600px) {
   .App {
     .main-container {
+      height: 90vh;
       width: 480px;
 
       .search-bar-container {

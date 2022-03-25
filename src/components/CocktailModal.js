@@ -21,7 +21,7 @@ const CocktailModal = ({
       <div className="cocktail-modal">
         <div className="div1">
           <div className="transparent-div"></div>
-          <h3>{modalCocktailName}</h3>
+          <h3>{modalCocktailName.toUpperCase()}</h3>
           <CloseIcon onClick={hideModal} className="close-icon" />
         </div>
 
